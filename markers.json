@@ -1,0 +1,26 @@
+[
+    {
+        "latlng": [41.821941954823842, -71.398431369056922],
+        "radius": 20,
+        "color": "#006",
+        "content": "This is some content <img src='http://www.residentadvisor.net/images/profiles/raime.jpg' />"
+    },
+    {
+        "latlng": [41.821804466808899, -71.398809705722371],
+        "radius": 10,
+        "color": "#0f0",
+        "content": ""
+    },
+    {
+        "latlng": [41.821738690639087, -71.39893419956698],
+        "radius": 40,
+        "color": "#606",
+        "content": ""
+    },
+    {
+        "latlng": [41.821732918252621, -71.398942443488465],
+        "radius": 15,
+        "color": "#f00",
+        "content": ""
+    }
+]
