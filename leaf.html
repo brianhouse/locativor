@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />        
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            var map;
+            var current_location_marker;
+            var hotspots = [];
+
+            function initMap () {
+                map = new L.map('map', {
+                    layers: new L.TileLayer('http://a.tiles.mapbox.com/v3/brianhouse.map-124z30te/{z}/{x}/{y}.png'),
+                    // center: new L.LatLng(42.352455, -71.048069),
+                    zoomControl: false,
+                    attributionControl: false,
+                    doubleClickZoom: false,
+                    scrollWheelZoom: false,
+                    boxZoom: false,
+                    touchZoom: false,
+                    dragging: false,
+                    keyboard: false,
+                    zoom: 13,
+                    minZoom: 10,                    
+                    maxZoom: 17
+                });     
+                // map.panTo([42.352455, -71.048069]);
+                // map.setZoom(17);    
+                map.locate({setView: true, watch: true});
+                map.on('locationfound', onLocationFound);
+                map.on('locationerror', onLocationError);
+            }
+
+            function onLocationFound (e) {
+                console.log(e);
+                var radius = e.accuracy / 2;
+                // L.circle(e.latlng, radius).addTo(map);  
+                if (current_location_marker == null) {
+                    current_location_marker = L.circleMarker(e.latlng, {radius: 10, clickable: false, color: '#006'}).addTo(map); 
+                } else {
+                    current_location_marker.setLatLng(e.latlng);
+                }              
+                createHotspot(e.latlng, 4);
+            }
+
+
+
+            function onLocationError (e) {
+                alert(e.message);
+            }
+
+            function createHotspot (latlng, radius) {
+                var marker = L.marker(latlng, {clickable: true}).addTo(map);
+                marker.bindPopup("This is some content <img src='http://www.residentadvisor.net/images/profiles/raime.jpg' />", {closeButton: false, autoPan: true});
+                hotspots.push([marker, radius]);
+                console.log(hotspots);
+
+                // marker.openPopup();
+            }
+
+
+            $(document).ready(function() {                   
+
+                initMap();
+
+                // remove a marker
+                // track the users location and do something with it in hotspots
+                // place hotspot, call up media when within range
+                // get it cool on the mobile
+
+                ///
+
+                // recreate morning, evening, night views from openpaths data
+                // connect the points with a line
+                // follow them                
+
+            });
+
+        </script>
+        <style type="text/css">
+            body {
+                margin: none;
+                padding: none;
+            }
+            #map {
+                width: 500px;
+                height: 500px; 
+                margin: none;
+                padding: none;
+                border: 1px solid black;               
+            }     
+/*            .circle {
+                -webkit-border-radius: 999px;
+                -moz-border-radius: 999px;
+                border-radius: 999px;
+                behavior: url(PIE.htc);                
+            }                   
+            .current_location {                
+                background: #0083ff;
+                border: 3px solid #004a97;
+            }
+*/        </style>
+    </head>
+    <body>
+         <div id="map"></div>
+    </body>
+</html>
