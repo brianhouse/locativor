@@ -1,13 +1,25 @@
 
+comment up HTML
 
-take a list of lat lons, and radius, and media
+text overlay intro, with instructions where to start (no, it would keep coming up)
 
-build the map and execute
+test with android
+
+text / video -- allow both/either
+
+maybe text should be a separate screen
+
+json validator: http://jsonlint.com/
 
 
+hosting
 
-### things people need to know
 
-how to geocode an address
+//
 
-how to address a geocode
+assignment
+
+can be a component, could use other stuff
+
+
+how to present?
