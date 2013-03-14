@@ -3,25 +3,25 @@
         "latlng": [41.821941954823842, -71.398431369056922],
         "radius": 40,
         "color": "#006",
-        "content": "This is some content <img src='http://www.residentadvisor.net/images/profiles/raime.jpg' />"
+        "text": "This is some content <img src='http://www.residentadvisor.net/images/profiles/raime.jpg' />"
     },
     {
         "latlng": [41.8205, -71.4008],
         "radius": 50,
         "color": "#0f0",
-        "content": "This is just a bunch of text",
-        "video": "youtube:uYMOG2lquSE"
+        "text": "JSON was used at State Software Inc., a company co-founded by Crockford, starting in April 2001, and funded by Tesla Ventures. When State was founded in early 2001 by six former employees of Communities.com, they agreed to build a system that used standard browser capabilities and provided an abstraction layer for Web developers to create stateful Web applications that had a persistent duplex connection to a Web server by holding the two http connections open and recycling them before standard browser time-outs if no further data were exchanged. The idea for the State Application Framework[when defined as?] stemmed from a project at Communities.com for Cartoon Network, which used a plug-in with a proprietary messaging format to manipulate DHTML elements (this system is also owned by 3DO); upon discovery of early AJAX capabilities, i.e,, digiGroups and Noosh, founded by Uri Sarid, and others using frames to pass information into the user browsers' visual field without refreshing a Web application's visual context, it was deduced that the basic components for realizing real-time rich Web applications were available by using only the standard HTTP, HTML and JavaScript capabilities of Netscape 4.0.5+ and IE 5+. Douglas Crockford then found that JavaScript could be used as an object-based messaging format for such a system. The system was sold to Sun Microsystems, Amazon.com and EDS. The JSON.org Web site was launched in 2002. In December 2005, Yahoo! began offering some of its Web services in JSON.[2] Google started offering JSON feeds for its GData web protocol in December 2006.[3]",
+        "video": "61742609"
     },
     {
         "latlng": [41.821, -71.401],
         "radius": 80,
         "color": "#606",
-        "content": ""
+        "text": ""
     },
     {
         "latlng": [41.82, -71.40],
         "radius": 40,
         "color": "#f00",
-        "content": "This is some content <img src='http://www.residentadvisor.net/images/profiles/raime.jpg' />"
+        "text": "This is some content <img src='http://www.residentadvisor.net/images/profiles/raime.jpg' />"
     }
 ]
