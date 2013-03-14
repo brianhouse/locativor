@@ -1,9 +1,12 @@
+/* change these to customize your map */
 var mapbox_username = "brianhouse";
 var mapbox_map_id = "124z30te";
-var path_to_data = "markers.json";
-var show_latlng = true;
+var path_to_data = "hotspots.json";
+var show_latlng = true; // show the latlng display - turn this off for your final version
 
-// global variables
+/////
+
+/* global variables */
 var map;                     // the map object
 var current_location_marker; // dot for the location of the user
 var hotspots = [];           // hotspot data
@@ -38,7 +41,7 @@ function loadMarkers () {
         $.each(data, function(index, o) {
             createHotspot(o['latlng'], o['radius'], o['color'], o['text'], o['video']);
         });
-    });    
+    }).error(function(e) { console.log("Failed to load " + path_to_data + ": " + e.statusText); });    
 }
 
 /* create hotspots */
