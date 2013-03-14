@@ -11,6 +11,7 @@ var map;                     // the map object
 var current_location_marker; // dot for the location of the user
 var hotspots = [];           // hotspot data
 var narratives = [];         // holder for text data
+var images = [];             // holder for image urls
 
 /* create the map */
 function initMap () {
@@ -39,15 +40,19 @@ function loadMarkers () {
     $.getJSON(path_to_data, function(data) {
         var items = [];
         $.each(data, function(index, o) {
-            createHotspot(o['latlng'], o['radius'], o['color'], o['text'], o['video']);
+            createHotspot(o['latlng'], o['radius'], o['color'], o['text'], o['image'], o['video']);
         });
     }).error(function(e) { console.log("Failed to load " + path_to_data + ": " + e.statusText); });    
 }
 
 /* create hotspots */
-function createHotspot (latlng, radius, color, text, video) {
+function createHotspot (latlng, radius, color, text, image, video) {
     var marker = L.circleMarker(latlng, {radius: feetToPixels(radius), clickable: true, color: color}).addTo(map);     
     content = '<div style="width: 160px">';
+    if (image != undefined && image.length) {
+        images.push('<img src="'+ image + '" style="width: 100%" />');
+        content += '<a href="javascript:openImage(' + (images.length - 1) + ');"><img style="width: 160px;" src="' + image + '" /></a>';
+    }
     if (text != undefined && text.length) {
         narratives.push(text);
         content += '<a href="javascript:openNarrative(' + (narratives.length - 1) + ');"><img style="width: 160px; height: 90px;" src="text_icon.png" /></a>';
@@ -89,10 +94,15 @@ function onLocationError (e) {
     alert(e.message);
 }
 
-/* open the narrative screen */
+/* open the content screens */
 function openNarrative (id) {
     $('#narrative #content').html(narratives[id]);
     $('#narrative').show();
+}
+
+function openImage (id) {
+    $('#image #content').html(images[id]);
+    $('#image').show();
 }
 
 
@@ -131,5 +141,6 @@ $(document).ready(function() {
     loadMarkers();
     initMap();
     $('#narrative').hide();
+    $('#image').hide();
 });
 

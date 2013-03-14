@@ -1,11 +1,17 @@
 Locative Media
 ==============
 
-This project is about exploring how media might relate to physical location. "Locativor" is an open-source, minimal web-application platform that uses MapBox, Leaflet, and JQuery. When a mobile browser is open to a Locativor map, it will center on the user's current location. Markers can be added to the map, and when the user is close enough to a hotspot, associated content will load. Content can be either a short text, an image, or video/sound from [Vimeo](http://vimeo.com).
+This project is about exploring how media might relate to physical location. 
 
-Use Locativor to create an experience. This might be conceived of as a tour, an intervention, a mixed-reality gallery, a pedagogical project, a fiction. Draw on your expertise from past exercises: the dérive, place mapping, data interpretation, ethnography, monuments, and acoustic ecology / rhythmanalysis. 
+"Locativor" is an open-source, minimal web-application platform that uses MapBox, Leaflet, and JQuery. When a mobile browser is open to a Locativor map, it will center on the user's current location. Markers can be added to the map, and when the user is close enough to a hotspot, associated content will load. Content can be either a short text, an image, or video/sound from [Vimeo](http://vimeo.com).
 
-We will have 20 minutes to review each experience, though it can be longer.
+Use Locativor to create an experience. This might be conceived of as a tour, an intervention, a mixed-reality gallery, a pedagogical project, a fiction. Draw on your expertise from past exercises: the dérive, place mapping, data interpretation, ethnography, monuments, and acoustic ecology / rhythmanalysis. All content that is included should be original and the result of your artistic research.
+
+The project will draw on / develop your media production skills. Keep in mind the limits of the platform and the inherent tension between a mobile device and the world around it.
+
+You may include a one-page handout with the experience to serve as an introduction and provide initial instructions. You may also require that headphones be used.
+
+We will have 20 minutes to review each experience, though your project can certainly grow beyond that.
 
 
 Locativor
@@ -13,11 +19,11 @@ Locativor
 
 You may modify the Locativor software as needed to suit your project.
 
-`locativor.js` - The logic that loads content and controls the display of the map. Includes variables for the MapBox tiles to display, which you should change to your own custom designed maps. 
+`locativor.js` The logic that loads content and controls the display of the map. Includes variables for the MapBox tiles to display, which you should change to your own custom designed maps. 
 
-`index.html` - The HTML and CSS that specifies the map. No need to modify this unless desired. You might want to change colors and fonts to match your aesthetic. Change the title field.
+`index.html` The HTML and CSS that specifies the map. No need to modify this unless desired. You might want to change colors and fonts to match your aesthetic. Change the title field.
 
-`hotspots.json` - This file is in JSON format; see below.
+`hotspots.json` This file is in JSON format; see below.
 
 
 Composing Hotspots
@@ -49,13 +55,13 @@ If you have errors in your hotspots.json file, use a JSON validator such as [htt
 Uploading Files
 ---------------
 
-We will use the [expgeo.org](http://expgeo.org) domain to run our web apps. To upload your code, use an SFTP (Secure File Transfer Protocol) application such as [Transmit](http://panic.com/transmit/). Each group should have its own folder in the "www" directory. To access your app, visit http://openposts.org/YOURGROUPFOLDER
+We will use the [expgeo.org](http://expgeo.org) domain to run our web apps. To upload your code, use an SFTP (Secure File Transfer Protocol) application such as [Transmit](http://panic.com/transmit/). Each group should have its own folder in the "www" directory. To access your app, visit http://expgeo.org/YOURGROUPFOLDER
 
-SFTP Info
-Domain: expgeo.org
-Username: dm7047
-Password: 
-Directory: www/YOURGROUPFOLDER
+SFTP Info  
+Domain: expgeo.org  
+Username: dm7047  
+Password:  
+Directory: www/YOURGROUPFOLDER  
 
 
 
