@@ -8,20 +8,16 @@
         <script type="text/javascript" src="locativor.js"></script>
         <style type="text/css">
             body, html {
-                margin: none;
-                padding: none;
+                margin: 0px;
+                padding: 0px;
                 width: 100%;
                 height: 100%;
                 font: 18px verdana;
             }
             #map {
                 position: absolute;
-                left: -10px;
-                top: -10px;
-                width: 105%;
-                height: 105%;
-                margin: none;
-                padding: none;
+                width: 100%;
+                height: 100%;
                 overflow: hidden;
             }     
             #current {
@@ -30,38 +26,29 @@
             }
             #narrative {
                 position: absolute;
-                left: -10px;
-                top: -10px;
-                width: 105%;
-                height: 105%;
-                margin: none;
-                padding: none;
+                width: 100%;
+                height: 100%;
                 overflow: hidden;
                 background-color: white;
                 display: none;
             }
-                #narrative #container {
+                #narrative #close {
                     position: absolute;
-                    left: 5%;
-                    top: 5%;
-                    width: 90%;
-                    height: 90%;
+                    left: 20px;
+                    top: 20px;
+                }                            
+                #narrative #content {
+                    position: absolute;
+                    left: 10%;
+                    width: 80%;
+                    height: 80%;
+                    overflow-x: hidden;
+                    overflow-y: scroll;   
                 }
-                    .overlay #container #content {
-                        position: absolute;
-                        width: 100%;
-                        height: 80%;
-                        overflow-x: hidden;
-                        overflow-y: scroll;   
-                    }
             #image {
                 position: absolute;
-                left: -10px;
-                top: -10px;
-                width: 105%;
-                height: 105%;
-                margin: none;
-                padding: none;
+                width: 100%;
+                height: 100%;
                 overflow: hidden;
                 background-color: black;
                 vertical-align: middle;
@@ -89,12 +76,10 @@
         <div id="map"></div>
         <div id="current"></div>
         <div id="narrative">
-            <div id="container">
-                <b><a style="font-size: 24px" href="javascript:$('#narrative').hide();">X</a></b>
-                <br />
-                <br />
-                <div id="content"></div>
-            </div>
+            <div id="close"><b><a style="font-size: 24px" href="javascript:$('#narrative').hide();">X</a></b></div>
+            <br />
+            <br />
+            <div id="content"></div>
         </div>
         <div id="image">
             <div id="content"></div>                        
