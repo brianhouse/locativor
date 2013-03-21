@@ -1,3 +1,0 @@
-hosting
-
-test with android

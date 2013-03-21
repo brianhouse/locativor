@@ -9,6 +9,7 @@ var show_latlng = true; // show the latlng display - turn this off for your fina
 /* global variables */
 var map;                     // the map object
 var current_location_marker; // dot for the location of the user
+var current_marker;          // the marker of the currently activated hotspot
 var hotspots = [];           // hotspot data
 var narratives = [];         // holder for text data
 var images = [];             // holder for image urls
@@ -30,9 +31,15 @@ function initMap () {
         minZoom: 17,                    
         maxZoom: 17
     });     
-    map.locate({setView: true, watch: true});
+    map.locate({setView: true, watch: true, enableHighAccuracy: true}); // detect current location
     map.on('locationfound', onLocationFound);
     map.on('locationerror', onLocationError);
+    map.on('popupclose', function(e) {
+        var marker = e.popup._source;
+        if (marker == current_marker) {
+            current_marker = null;
+        }
+    });
 }
 
 /* load data file */
@@ -47,7 +54,7 @@ function loadMarkers () {
 
 /* create hotspots */
 function createHotspot (latlng, radius, color, text, image, video) {
-    var marker = L.circleMarker(latlng, {radius: feetToPixels(radius), clickable: true, color: color}).addTo(map);     
+    var marker = L.circleMarker(latlng, {radius: feetToPixels(radius), clickable: false, color: color}).addTo(map);
     content = '<div style="width: 160px">';
     if (image != undefined && image.length) {
         images.push('<img src="'+ image + '" style="width: 100%" />');
@@ -84,7 +91,10 @@ function onLocationFound (e) {
         var radius = hotspot[1];
         var distance = geoDistance(e.latlng, marker.getLatLng());
         if (distance < radius) {
-            marker.openPopup();
+            if (current_marker != marker) {
+                marker.openPopup();
+                current_marker = marker;
+            }
         }
     });       
 }
