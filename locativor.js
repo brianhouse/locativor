@@ -54,7 +54,7 @@ function loadMarkers () {
 
 /* create hotspots */
 function createHotspot (latlng, radius, color, text, image, video) {
-    var marker = L.circleMarker(latlng, {radius: feetToPixels(radius), clickable: false, color: color}).addTo(map);
+    var marker = L.circleMarker(latlng, {radius: feetToPixels(radius), clickable: false, color: color, fillOpacity: 0.2, stroke: true}).addTo(map);
     content = '<div style="width: 160px">';
     if (image != undefined && image.length) {
         images.push('<img src="'+ image + '" style="width: 100%" />');
@@ -65,7 +65,12 @@ function createHotspot (latlng, radius, color, text, image, video) {
         content += '<a href="javascript:openNarrative(' + (narratives.length - 1) + ');"><img style="width: 160px; height: 90px;" src="text_icon.png" /></a>';
     }
     if (video != undefined && video.length) {
-        content += '<iframe style="width: 160; height: 90px;" src="http://player.vimeo.com/video/' + video + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>';
+        var isnum = /^\d+$/.test(video);
+        if (!isnum) {
+            content += '<iframe style="width: 160px; height: 90px;" src="http://www.youtube.com/embed/' + video + '?rel=0" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>';
+        } else {
+            content += '<iframe style="width: 160px; height: 90px;" src="http://player.vimeo.com/video/' + video + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>';
+        }
     }
     content += '</div>';
     marker.bindPopup(content, {closeButton: false, autoPan: true});
