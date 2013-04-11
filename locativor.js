@@ -47,13 +47,13 @@ function loadMarkers () {
     $.getJSON(path_to_data, function(data) {
         var items = [];
         $.each(data, function(index, o) {
-            createHotspot(o['latlng'], o['radius'], o['color'], o['text'], o['image'], o['video']);
+            createHotspot(o['latlng'], o['radius'], o['color'], o['text'], o['image'], o['video'], o['link']);
         });
     }).error(function(e) { console.log("Failed to load " + path_to_data + ": " + e.statusText); });    
 }
 
 /* create hotspots */
-function createHotspot (latlng, radius, color, text, image, video) {
+function createHotspot (latlng, radius, color, text, image, video, link) {
     var marker = L.circleMarker(latlng, {radius: feetToPixels(radius), clickable: false, color: color, fillOpacity: 0.2, stroke: true}).addTo(map);
     content = '<div style="width: 160px">';
     if (image != undefined && image.length) {
@@ -72,9 +72,12 @@ function createHotspot (latlng, radius, color, text, image, video) {
             content += '<iframe style="width: 160px; height: 90px;" src="http://player.vimeo.com/video/' + video + '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>';
         }
     }
+    if (link != undefined && link.length) {
+        content += '<a href="' + link + '"><img style="width: 160px; height: 90px;" src="link_icon.png" /></a>';
+    }
     content += '</div>';
     marker.bindPopup(content, {closeButton: false, autoPan: true});
-    hotspots.push([marker, radius, text, video]);
+    hotspots.push([marker, radius]);
 }
 
 /* when the user's location is found */
